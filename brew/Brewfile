@@ -1,0 +1,6 @@
+tap "homebrew/bundle"
+tap "homebrew/core"
+brew "pkg-config"
+brew "samtools"
+brew "tree"
+brew "wget"

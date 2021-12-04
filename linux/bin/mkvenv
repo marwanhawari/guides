@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Get the current working directory and replace spaces with underscores
+pwd=$(echo ${PWD##*/} | tr ' ' _)
+
+# Check if the venv already exists
+if [ -d "venv_$pwd" ]
+then
+    echo "venv_$pwd already exists"
+    exit 1
+fi
+
+# Create the venv
+echo "Creating venv_$pwd"
+python3 -m venv venv_$pwd
+echo "Done!"

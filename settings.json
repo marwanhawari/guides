@@ -1,0 +1,64 @@
+{
+
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "workbench.iconTheme": "material-icon-theme",
+
+    "python.pythonPath": "/usr/bin/python3",
+    "jupyter.alwaysTrustNotebooks": true,
+    "window.zoomLevel": -1,
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "security.workspace.trust.untrustedFiles": "open",
+    "python.defaultInterpreterPath": "/usr/bin/python3",
+    "code-runner.executorMap":{
+        "python": "$pythonPath -u $fullFileName"
+    },
+
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/venv_*/": true
+    },
+    "editor.defaultFormatter": null,
+    "python.formatting.provider": "black",
+    "editor.formatOnSave": false,
+    "[python]": {
+        "editor.formatOnSave": true
+    },
+    "prettier.requireConfig": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "files.associations": {
+        ".prettierrc": "plaintext"
+    },
+    "editor.inlineSuggest.enabled": true,
+    "github.copilot.enable": {
+        "*": false,
+        "yaml": false,
+        "plaintext": false,
+        "markdown": false
+    },
+    "go.toolsManagement.autoUpdate": true
+
+}

@@ -1,0 +1,5 @@
+# Display line numbers
+set linenumbers
+
+# Include syntax highlighting defined in the ~/.nano/ files
+include ~/.nano/*

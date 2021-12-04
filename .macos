@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+# ~/.macos — https://mths.be/macos
+
+# Close any open System Preferences panes, to prevent them from overriding
+# settings we’re about to change
+osascript -e 'tell application "System Preferences" to quit'
+
+# Ask for the administrator password upfront
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until `.macos` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+###############################################################################
+# General UI/UX                                                               #
+###############################################################################
+
+
+- [ ] Show scroll bar: Always
+- [ ] Click in the scroll bar to: Jump to the spot that’s clicked
+- [ ] Dock size: about 20%
+    - [ ] Position: Left
+    - [ ] Automatically hide and show the Dock
+    - [ ] Uncheck “Show recent applications in Dock”
+- [ ] Menu Bar: Automatically hide and show the menu bar
+- [ ] Show Bluetooth in Menu bar
+- [ ] Show battery percentage
+- [ ] Mission Control
+    - [ ] Group windows by application
+- [ ] Keyboard
+    - [ ] Touch Bar shows expanded Control strip
+    - [ ] Uncheck:
+        - [ ] Capitalize words automatically
+        - [ ] Add period with double-space
+        - [ ] Use smart quotes and dash
+    - [ ] Check: Use keyboard navigation to move focus between controls
+- [ ] Trackpad
+    - [ ] Check: Tap to click
+    - [ ] Uncheck: Swipe between pages
+    - [ ] Check: App Expose
+- [ ] Display
+    - [ ] Uncheck: Automatically adjust brightness
+    - [ ] Nightshift
+        - [ ] Sunset to Sunrise
+        - [ ] Turn on Until Sunrise
+        - [ ] Most Warm temperature
+- [ ] Battery
+    - [ ] Battery
+        - [ ] Turn display off after: 15 min
+    - [ ] Power adapter
+        - [ ] Turn display off after: 30 min
+        - [ ] Check: Prevent computer from sleeping automatically when the display is off
