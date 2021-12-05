@@ -29,6 +29,9 @@
   * Test files should end in `_test.go`
   * Run tests with `go test`
   * Testing code generally lives in the same package which it tests. For example if you want to test code from `package main`, then the corresponding `_test.go` file should also use `package main`.
+  * Calculate coverage and output a `coverage.out` file with `go test -v --coverprofile coverage.out`.
+    * Read coverage in terminal using `go tool cover --func coverage.out`
+    * Read html report using `go tool cover --html coverage.out`
 
 * Manually run formatting with `go fmt`
 
