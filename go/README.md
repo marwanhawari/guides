@@ -51,6 +51,12 @@
     * `go install` will build, compile, and add the executable to the `~/go/bin` automatically. It will also retain the entire source code (not just the `package main` code) in the `~/go/pkg/mod/github.com/marwanhawari/gopkg@v0.0.1` directory (assuming v0.0.1 is the latest).
       * `go get` will only download the source code (to the same `~/go/pkg/mod/github.com/marwanhawari/gopkg@v0.0.1`), and it will _not_ compile or install any executable.
 
+* All downloaded dependencies are stored in one location (by default in `~/go/pkg/mod`). This is unlinke Python (which uses `venv`) or Node (which uses `node_modules`). However, you can make a copy of the 3rd party packages specific to your project using `go mod vendor`. Vendoring with `go mod vendor` will create a `vendor` directory within your project with all the source code for your 3rd party dependencies.
+  * It is important to put `vendor/` under source control because go doesn't have a central package registry and it could be easy for one of your dependencies to be deleted by the author, re-tagged with breaking changes, etc.
+  * The `go.mod` and `go.sum` files should also be under source control.
+
+
+
 <p align="center">
   <img src="https://github.com/marwanhawari/guides/blob/main/images/go-imports.png" alt="go-imports" width="700"/>
 </p>
