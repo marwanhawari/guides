@@ -60,9 +60,10 @@
 │       └── main.go
 ├── go.mod
 ├── go.sum
+├── mylib
+│   └── projfuncC.go
 ├── projfuncA.go
 ├── projfuncB.go
-├── projfuncC.go
 └── vendor
 ```
 * This will install `executable1` and `executable2` bianries in `~/go/bin`.
@@ -93,16 +94,29 @@ func AlsoExportMe() {
 ```
 
 ```go
+// mylib/projfuncC.go
+package mylib
+
+import "fmt"
+
+func FinallyExportMe() {
+	fmt.Println("finally exported!")
+}
+```
+
+```go
 // cmd/executable1/main.go
 package main
 
 import (
 	myproj "github.com/marwanhawari/myproj"
+	mylib "github.com/marwanhawari/myproj/mylib"
 )
 
 func main() {
   myproj.ExportMe()
   myproj.AlsoExportMe()
+  mylib.FinallyExportMe()
 }
 ```
 
