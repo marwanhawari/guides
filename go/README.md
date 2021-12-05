@@ -50,6 +50,61 @@
     * If the `package main` of the module you want to download is not in the root directory, you have to point `go install` to that specific path or it won't compile/install the binary (it will only download the source code into `~/go/pkg/mod/github.com/marwanhawari/gopkg@v0.0.1`. For example, if the executable is in `github.com/marwanhawari/gopkg/cmd/gopkgcli`, then you need to do `go install github.com/marwanhawari/gopkg/cmd/gopkgcli`.
     * `go install` will build, compile, and add the executable to the `~/go/bin` automatically. It will also retain the entire source code (not just the `package main` code) in the `~/go/pkg/mod/github.com/marwanhawari/gopkg@v0.0.1` directory (assuming v0.0.1 is the latest).
       * `go get` will only download the source code (to the same `~/go/pkg/mod/github.com/marwanhawari/gopkg@v0.0.1`), and it will _not_ compile or install any executable.
+* If your project is structured with multiple executables that will compiled into separated binaries, you can install them all with the `...` syntax: `go install github.com/marwanhawari/myproj/cmd/...@latest` or even just `go install github.com/marwanhawari/myproj/...@latest`
+```
+~/myproj
+├── cmd
+│   ├── executable1
+│   │   └── main.go
+│   └── executable2
+│       └── main.go
+├── go.mod
+├── go.sum
+├── projfuncA.go
+├── projfuncB.go
+├── projfuncC.go
+└── vendor
+```
+* This will install `executable1` and `executable2` bianries in `~/go/bin`.
+* The `executable1/main.go` and `executable2/main.go` must be `package main` (but they don't need to be named `main.go`, they can be named anything)
+* The `projfuncA.go`, `projfuncB.go`, and `projfuncC.go` are used by `executable1` and `executable2`, but they can't be directly called from the command line. Their functions can be imported though (both within the project in `executable1/main.go` and `exectuable2/main.go` as well as in other projects where `myproj` was installed as a dependency.
+* `projfuncA.go`, `projfuncB.go`, and `projfuncC.go` don't need to be `package main` and don't need a `main` function.
+
+```go
+// projfuncA.go
+package myproj
+
+import "fmt"
+
+func ExportMe() {
+    fmt.Println("exported function!)
+}
+```
+
+```go
+// projfuncB.go
+package myproj
+
+import "fmt"
+
+func AlsoExportMe() {
+    fmt.Println("also exported!")
+}
+```
+
+```go
+// cmd/executable1/main.go
+package main
+
+import (
+	myproj "github.com/marwanhawari/myproj"
+)
+
+func main() {
+  myproj.ExportMe()
+  myproj.AlsoExportMe()
+}
+```
 
 * All downloaded dependencies are stored in one location (by default in `~/go/pkg/mod`). This is unlinke Python (which uses `venv`) or Node (which uses `node_modules`). However, you can make a copy of the 3rd party packages specific to your project using `go mod vendor`. Vendoring with `go mod vendor` will create a `vendor` directory within your project with all the source code for your 3rd party dependencies.
   * It is important to put `vendor/` under source control because go doesn't have a central package registry and it could be easy for one of your dependencies to be deleted by the author, re-tagged with breaking changes, etc.
