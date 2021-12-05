@@ -47,7 +47,7 @@
   * To install an executable while ignoring the current module, use `go install` with a version suffix: `go install github.com/marwanhawari/gopkg@latest`
     * With a version suffix, `go install` does not read or update the `go.mod` file in the current directory or a parent directory
     * `go install` without a version suffix won't work outside of a dir containing a `go.mod` file
-    * If the `package main` of the module you want to download is not in the root directory, you have to point `go install` to that specific path or it won't work. For example, if the executable is in `github.com/marwanhawari/gopkg/cmd/gopkgcli`, then you need to do `go install github.com/marwanhawari/gopkg/cmd/gopkgcli`. Just doing `go install github.com/marwanhawari/gopkg` won't work.
+    * If the `package main` of the module you want to download is not in the root directory, you have to point `go install` to that specific path or it won't compile/install the binary (it will only download the source code into `~/go/pkg/mod/github.com/marwanhawari/gopkg@v0.0.1`. For example, if the executable is in `github.com/marwanhawari/gopkg/cmd/gopkgcli`, then you need to do `go install github.com/marwanhawari/gopkg/cmd/gopkgcli`.
     * `go install` will build, compile, and add the executable to the `~/go/bin` automatically. It will also retain the entire source code (not just the `package main` code) in the `~/go/pkg/mod/github.com/marwanhawari/gopkg@v0.0.1` directory (assuming v0.0.1 is the latest).
       * `go get` will only download the source code (to the same `~/go/pkg/mod/github.com/marwanhawari/gopkg@v0.0.1`), and it will _not_ compile or install any executable.
 
