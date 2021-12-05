@@ -11,6 +11,25 @@
 └── src
 ```
 * Then create a new dir for your project in the `src` directory.
+* Running `go mod init github.com/marwanhawari/myproj` creates a `go.mod` file
+* Running `go mod install github.com/marwanhawari/myproj` compiles your `package main` go file in the `myproj` directory and installs the compiled binary in yout `~/go/bin` directory.
+
+```
+~/go
+├── bin
+│   └── projfile
+├── pkg
+└── src
+    └── myproj
+        ├── go.mod
+        └── projfile.go
+```
+
+* Go has built in testing capabilities.
+  * Test files should end in `_test.go`
+  * Run tests with `go test`
+
+* Manually run formatting with `go fmt`
 
 ## Go packages
 
