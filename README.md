@@ -10,6 +10,9 @@
 ## Git
 [<img src="https://github.com/marwanhawari/guides/raw/main/images/git.png" alt="git" width="75"/>](https://github.com/marwanhawari/guides/blob/main/git/)
 
+## Go
+[<img src="https://github.com/marwanhawari/guides/raw/main/images/go.png" alt="go" width="75"/>](https://github.com/marwanhawari/guides/blob/main/go/)
+
 ## JavaScript
 [<img src="https://github.com/marwanhawari/guides/raw/main/images/javascript.png" alt="javascript" width="75"/>](https://github.com/marwanhawari/guides/blob/main/javascript/)
 
