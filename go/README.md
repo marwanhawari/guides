@@ -1,5 +1,17 @@
 # Go guide
 
+## General
+* Your GOPATH should be `~/go`
+* Your GOROOT should be `/usr/local/go`
+* You need to manually create the workspace structure in the GOPATH
+```
+~/go
+├── bin
+├── pkg
+└── src
+```
+* Then create a new dir for your project in the `src` directory.
+
 ## Go packages
 
 <p align="center">
