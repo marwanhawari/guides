@@ -28,6 +28,7 @@
 * Go has built in testing capabilities.
   * Test files should end in `_test.go`
   * Run tests with `go test`
+  * Testing code generally lives in the same package which it tests. For example if you want to test code from `package main`, then the corresponding `_test.go` file should also use `package main`.
 
 * Manually run formatting with `go fmt`
 
