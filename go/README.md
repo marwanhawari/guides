@@ -34,6 +34,8 @@
 
 ## Go packages
 
+* If you are creating a non-executable go package (i.e. a go library), then you won't need a `package main` or `main()` function.
+
 <p align="center">
   <img src="https://github.com/marwanhawari/guides/blob/main/images/go-imports.png" alt="go-imports" width="700"/>
 </p>
