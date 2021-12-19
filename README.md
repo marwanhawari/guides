@@ -24,3 +24,6 @@
 
 ## Python
 [<img src="https://github.com/marwanhawari/guides/raw/main/images/python.png" alt="python" width="75"/>](https://github.com/marwanhawari/guides/blob/main/python/)
+
+## Rust
+[<img src="https://github.com/marwanhawari/guides/raw/main/images/rust.png" alt="rust" width="75"/>](https://github.com/marwanhawari/guides/blob/main/rust/)
