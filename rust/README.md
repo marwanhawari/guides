@@ -8,10 +8,10 @@
     cross-compiling simpler with binary builds of the standard library
     for common platforms.
     * Common toolchain targets:
-      * aarch64-unknown-linux-gnu
-      * x86_64-unknown-linux-gnu
-      * aarch64-apple-darwin
-      * x86_64-apple-darwin
+      * `aarch64-unknown-linux-gnu`
+      * `x86_64-unknown-linux-gnu`
+      * `aarch64-apple-darwin`
+      * `x86_64-apple-darwin`
     * View all available installed and available targets with `rustup target list`
     * View currently installed toolchains with `rustup toolchain list`
     * Install a toolchain with `rustup toolchain install stable-x86_64-pc-windows-msvc`
