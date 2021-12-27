@@ -13,11 +13,13 @@
       * `aarch64-apple-darwin`
       * `x86_64-apple-darwin`
     * View all available installed and available targets with `rustup target list`
+    * To add a target for cross-compilation: `rustup target add x86_64-apple-darwin`
     * View currently installed toolchains with `rustup toolchain list`
     * Install a toolchain with `rustup toolchain install stable-x86_64-pc-windows-msvc`
   * `rustc`: The Rust compiler. Rarely used on its own. More common to use `cargo` for compilation.
   * `cargo`: Rust package manager.
 * A package is a `Cargo.toml` + source code.
+* Cross compile by installing the `cross` tool (https://github.com/rust-embedded/cross), then: `cross build --release --target x86_64-apple-darwin`.
 
 ## Cargo
 * `cargo build`
