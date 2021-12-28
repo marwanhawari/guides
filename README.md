@@ -4,6 +4,9 @@
 ## Conda
 [<img src="https://github.com/marwanhawari/guides/raw/main/images/conda.png" alt="conda" width="75"/>](https://github.com/marwanhawari/guides/blob/main/conda/)
 
+## CSS
+[<img src="https://github.com/marwanhawari/guides/raw/main/images/css.png" alt="css" width="75"/>](https://github.com/marwanhawari/guides/blob/main/css/)
+
 ## Docker
 [<img src="https://github.com/marwanhawari/guides/raw/main/images/docker.png" alt="docker" width="75"/>](https://github.com/marwanhawari/guides/blob/main/docker/)
 
