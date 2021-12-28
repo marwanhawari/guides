@@ -30,3 +30,6 @@
 
 ## Rust
 [<img src="https://github.com/marwanhawari/guides/raw/main/images/rust.png" alt="rust" width="75"/>](https://github.com/marwanhawari/guides/blob/main/rust/)
+
+## Vue
+[<img src="https://github.com/marwanhawari/guides/raw/main/images/vue.png" alt="vue" width="75"/>](https://github.com/marwanhawari/guides/blob/main/vue/)
