@@ -35,7 +35,8 @@
     * Read html report using `go tool cover --html coverage.out`
 
 * Manually run formatting with `go fmt`
-* Go passes-by-value for functions. Need to explicitly used `*` character in function declarations to pass by reference (even slices/maps/structs).
+* Go passes-by-value primitive types `[string, int, bool, float, array, struct]` for functions - need to explicitly used `*` character in function declarations to pass by reference.
+  * However, types `[slice, map, function]` are passed-by-reference
 
 ## Go packages
 
