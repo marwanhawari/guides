@@ -35,6 +35,7 @@
     * Read html report using `go tool cover --html coverage.out`
 
 * Manually run formatting with `go fmt`
+* Go passes-by-value for functions. Need to explicitly used `*` character in function declarations to pass by reference (even slices/maps/structs).
 
 ## Go packages
 
