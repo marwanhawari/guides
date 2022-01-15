@@ -37,6 +37,7 @@
 * Manually run formatting with `go fmt`
 * Go passes-by-value primitive types `[string, int, bool, float, array, struct]` for functions - need to explicitly used `*` character in function declarations to pass by reference.
   * However, types `[slice, map, function]` are passed-by-reference
+  * Can create `value-receiver` _or_ `pointer-receiver` methods for `structs`
 
 ## Go packages
 
