@@ -35,9 +35,9 @@
     * Read html report using `go tool cover --html coverage.out`
 
 * Manually run formatting with `go fmt`
-* Go passes-by-value primitive types `[string, int, bool, float, array, struct]` for functions - need to explicitly used `*` character in function declarations to pass by reference.
-  * However, types `[slice, map, function]` are passed-by-reference
-  * Can create `value-receiver` _or_ `pointer-receiver` methods for `structs`
+* Go passes-by-value the following types: `[string, int, bool, float, array, struct]` for functions - need to explicitly used `*` character in function declarations to pass by reference.
+  * However, types `[slice, map, function]` are passed-by-reference (don't need to use `*` in function signature or use `&/*` on variables.
+  * Can create `value-receiver` _or_ `pointer-receiver` methods for `structs`. You don't need to use `*` to de-reference the struct variable inside the method - go does this automatically for you. You _do_ need to use the `*` to set the struct pointer type in the function signature.
 
 ## Go packages
 
