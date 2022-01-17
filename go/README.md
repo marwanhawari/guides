@@ -39,6 +39,90 @@
   * However, types `[slice, map, function]` are passed-by-reference (don't need to use `*` in function signature or use `&/*` on variables.
   * Can create `value-receiver` _or_ `pointer-receiver` methods for `structs`. You don't need to use `*` to de-reference the struct variable inside the method - go does this automatically for you. You _do_ need to use the `*` to set the struct pointer type in the function signature.
 
+### Structs w/in structs patterns:
+```go
+// "Base" struct
+type Animal struct {
+	Name string
+	Age  int
+}
+
+func (self Animal) Speak() {
+	fmt.Println("My name is", self.Name)
+}
+```
+* `is-a` relationships (similar to **inheritance** in OOP languages):
+
+```go
+type Dog struct {
+	Animal
+	Breed string
+}
+
+dog := Dog{Animal: Animal{"Coco", 5}, Breed: "Shiba"}
+fmt.Println(dog.Name, dog.Age, dog.Breed) // Coco 5 Shiba
+dog.Speak()                               // "My name is Coco"
+
+```
+
+* `has-a` relationships (similar to **composition** in OOP languages):
+
+```go
+type Cat struct {
+	Animal Animal
+	Breed  string
+}
+
+cat := Cat{Animal: Animal{"Meow", 2}, Breed: "Siamese"}
+fmt.Println(cat.Animal.Name, cat.Animal.Age, cat.Breed) // Meow 2 Siamese
+cat.Animal.Speak()                                      // "My name is Meow"
+```
+
+### Interfaces
+* Here `Animal` is a common interface for the `Dog` and `Cat` types. For a struct type to also be considered part of an interface type, the struct type must implement _all_ of the interfaces methods (but not limited to just the interface methods). So here, `Dog` and `Cat` types are also automatically `Animal` types because `Dog` and `Cat` both implement the `Speak()` method specified in the `Animal` interface.
+* The interface is useful because `Dog.Speak()` and `Cat.Speak()` actually have different behaviors, but using the `Animal` interface we are able to provide a common _interface_ for the `Speak()` method that doesn't care about the individual implementations for each `Speak()` method. This is similar to **polymorphism** in OOP.
+
+```go
+
+type Dog struct {
+	Name string
+	Age  int
+}
+
+func (self Dog) Speak() string {
+	return "Woof!"
+}
+
+type Cat struct {
+	Name string
+	Age  int
+}
+
+func (self Cat) Speak() string {
+	return "Meow!"
+}
+
+type Animal interface {
+	Speak() string
+}
+
+func AnimalSpeak(animal Animal) {
+	fmt.Println(animal.Speak())
+}
+
+func main () {
+
+	dog := Dog{"Coco", 5}
+	cat := Cat{"Kitty", 2}
+
+	animals := []Animal{dog, cat}
+	for _, animal := range animals {
+		AnimalSpeak(animal) // "Woof!", "Meow!"
+	}
+
+}
+```
+
 ## Go packages
 
 * If you are creating a non-executable go package (i.e. a go library), then you won't need a `package main` or `main()` function.
