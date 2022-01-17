@@ -140,8 +140,65 @@ type Types struct {
 }
 ```
 
+### Error handling
+* Go has a built-in `error` type:
+```go
+type error interface {
+    Error() string
+}
+// This implies that any struct with an Error() method that returns a string can be returned as an error type
+```
+* Multiple ways to return errors:
+  * `errors.New()`: Accepts 1 parameter, an error message and returns that message as type `error` - `err := errors.New("error message")`
+  * `fmt.Errorf()`: Returns a _formatted_ error message. Like `fmt.Printf()` but returns message as type `error` - `err := fmt.Errorf("error message, cannot handle %v\n", data)
+* The error type can be extended to create custom errors by creating custom structs that implement an `Error()` method. This is especially useful if you want to be able to use conditionals/switch statements to check for specific types of errors and handle them in different ways.
+* "The fmt package formats an error value by calling its Error() string method." - https://go.dev/blog/error-handling-and-go
 
+Basic example:
+```go
+func divide(numerator int, denominator int) (int, error) {
+	if denominator == 0 {
+		return 0, fmt.Errorf("Cannot divide by %v!", denominator)
+	}
+	return numerator / denominator, nil
+}
 
+func main() {
+	out, err := divide(6, 0)
+	if err != nil {
+		fmt.Println("error - divide():", err)
+		os.Exit(1)
+	}
+	fmt.Println(out)
+}
+```
+
+Using a custom error:
+```go
+type DivideByZeroError struct {
+	message string
+}
+
+func (self DivideByZeroError) Error() string {
+	return fmt.Sprintf(self.message)
+}
+
+func divide(numerator int, denominator int) (int, error) {
+	if denominator == 0 {
+		return 0, DivideByZeroError{message: "Cannot divide by 0!"}
+	}
+	return numerator / denominator, nil
+}
+
+func main() {
+	out, err := divide(6, 0)
+	if err != nil {
+		fmt.Println("error - divide():", err)
+		os.Exit(1)
+	}
+	fmt.Println(out)
+}
+```
 
 ## Go packages
 
