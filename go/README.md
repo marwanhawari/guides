@@ -123,6 +123,26 @@ func main () {
 }
 ```
 
+### Zero values
+* The "0"/uninitialized values for types:
+```go
+
+type Types struct {
+	String  string // ""
+	Bool    bool // false
+	Int     int // 0
+	Float   float64 // 0
+	Complex complex128 // (0+0i)
+	Array   [2]int // [0 0]
+	Slice   []int // []
+	Map     map[int]int // map[]
+	Pointer *int // <nil>
+}
+```
+
+
+
+
 ## Go packages
 
 * If you are creating a non-executable go package (i.e. a go library), then you won't need a `package main` or `main()` function.
