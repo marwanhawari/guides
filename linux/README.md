@@ -47,3 +47,16 @@ source: https://blog.flowblok.id.au/2013-02/shell-startup-scripts.html
 * Rename a session: `tmux rename-session -t <old-session-name> <new-session-name>`
 * End a session: `tmux kill-session -t <session-name>`
 * Show all hotkeys: `ctrl+b ?`
+
+## Package management
+
+| distrubtion | package manager |
+| ----------- | --------------- |
+| debian/ubuntu | `apt install <package>` OR `apt install /path/to/<package>.deb` |
+| arch | `pacman -S <package>` |
+| fedora | `dnf install <package>` OR `dnf localinstall /path/to/<package>.rpm` |
+| freeBSD | `pkg install <package>` |
+| openSUSE | `zypper install <package>` |
+| alpine | `apk add <package>` OR `apk add --allow-untrusted /path/to/<package>.apk` |
+| nix | `nix-env --install <package>` |
+| centOS/RHEL/amazonlinux | `yum install <package>` OR `yum localinstall /path/to/<package>.rpm` |
